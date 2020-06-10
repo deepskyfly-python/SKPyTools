@@ -1,12 +1,28 @@
 from docx import Document
-from docx.shared import Inches
 
-document = Document('demo.docx')  #打开文件demo.docx
-for paragraph in document.paragraphs:
-    print(paragraph.text)  #打印各段落内容文本
+doc = Document('demo.docx')
 
-document.add_paragraph(
-    'Add new paragraph', style='ListNumber'
-)    #添加新段落
+#每一段的内容
+print('#每一段的内容')
+for para in doc.paragraphs:
+    print(para.style.name +": "+ para.text)
 
-document.save('demo.docx') #保存文档
+print('#每一段的编号、内容')
+#每一段的编号、内容
+for i in range(len(doc.paragraphs)):
+    print(str(i),  doc.paragraphs[i].text)
+
+#表格
+print('#表格')
+tbs = doc.tables
+for tb in tbs:
+    #行
+    for row in tb.rows:    
+        #列    
+        for cell in row.cells:
+            print(cell.text)
+            #也可以用下面方法
+            '''text = ''
+            for p in cell.paragraphs:
+                text += p.text
+            print(text)'''
