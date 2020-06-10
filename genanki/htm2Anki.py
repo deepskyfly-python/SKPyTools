@@ -2,10 +2,8 @@ from bs4 import BeautifulSoup
 import genanki
 import re
 
-fileName = 'test.htm'
-my_deck = genanki.Deck(
-    2059411250,
-    'test')
+fileName = '100句翻译.htm'
+my_deck = genanki.Deck(2059411251,'100句翻译')
 
 
 # anki 的牌model 可以根据自己的想法设置
@@ -35,8 +33,17 @@ my_model = genanki.Model(
     '''
     )
 
+def isQuestionParagraph(p):
+    if p['class'] == ['MsoListParagraph']:
+        return True
+    
+    if p.has_key('style') and p['style'].find('mso-list') != -1:
+        return True
+
+    return False
+
 def addNewNote(qStr,aStr):
-    # print(qustStr)
+    #print(qStr)
     aStr = re.sub(r'(<img.*src=")(.*/)(.*)"',r'\1\3',aStr)
     my_deck.add_note(genanki.Note(model=my_model,fields=[qStr, aStr]))
 
@@ -48,7 +55,7 @@ def main_run():
     pCount = len(soup.findAll('p'))    
     for pp in soup.find_all('p'):
         pCount -= 1
-        if pp['class'] == ['MsoListParagraph']:
+        if isQuestionParagraph(pp):
             if qustStr != '':
                 addNewNote(qustStr,answerStr)
 
