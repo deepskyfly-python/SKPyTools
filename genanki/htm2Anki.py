@@ -2,13 +2,19 @@ from bs4 import BeautifulSoup
 import genanki
 import re
 
-fileName = '100句翻译.htm'
-my_deck = genanki.Deck(2059411251,'100句翻译')
+# fileName = '语法改错400句.htm'
+# my_deck = genanki.Deck(2059411252,'语法改错400句')
+
+# fileName = '100句翻译.htm'
+# my_deck = genanki.Deck(2059411251,'100句翻译')
+
+fileName = '100句翻译_扩展.htm'
+my_deck = genanki.Deck(2059411250,'100句翻译_扩展')
 
 
 # anki 的牌model 可以根据自己的想法设置
 my_model = genanki.Model(
-    1091735104,
+    1091735104, 
     'Simple Model',
     # 这里是传入fields 的变量代名
     fields=[
@@ -23,12 +29,13 @@ my_model = genanki.Model(
             'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
         },
     ],
-    css = r'''.card {
+    css = r'''
+    .card {
     font-family: arial;
     font-size: 20px;
     text-align: left;
-    color: black;
-    background-color: white;
+    color: #D1D1D1;
+    background-color: #282828;
     }
     '''
     )

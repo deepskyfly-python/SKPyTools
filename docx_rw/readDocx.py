@@ -26,3 +26,6 @@ for tb in tbs:
             for p in cell.paragraphs:
                 text += p.text
             print(text)'''
+
+
+print(doc.image)
