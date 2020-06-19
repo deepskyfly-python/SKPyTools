@@ -8,3 +8,6 @@ print(testStr.split('.')[0])
 
 testStr2 = 'word = %s = %d' % ('sky',1)
 print(testStr2)
+
+print(os.system('dir'))
+print(os.popen('dir'))

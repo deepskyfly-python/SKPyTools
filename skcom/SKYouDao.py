@@ -72,6 +72,9 @@ if __name__ == '__main__':
     # if not os.path.exists(SKYouDao.audioDir):
     #     os.mkdir(SKYouDao.audioDir)
     # print(SKYouDao.getWordAudio('sky'))
-    # print(SKYouDao.getWordAudio2('''in  the  sky's home'''))
-    print(SKYouDao.getWordAnkiCard('sky'))
+
+    textSp = '''Sometimes, although it is difficult to evaluate the environmental cost of human activities, there is a necessity for the government enacting legislations to restrict some behaviors , which can also arise people's concern about environmental degradation. '''
+    print(SKYouDao.getWordAudio2(textSp))
+    
+    # print(SKYouDao.getWordAnkiCard('sky'))
     
