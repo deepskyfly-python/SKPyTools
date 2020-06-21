@@ -1,11 +1,15 @@
 import os   
+
+# cmdStr = 'ls'
+cmdStr = 'dir'
+
 print("===========================>os.system")
-os.system('dir')
+os.system(cmdStr)
 
 
 
 # import os   
-tmp = os.popen('ls *.sh').readlines()
+tmp = os.popen(cmdStr+' *.ini').readlines()
 print("===========================>os.popen")
 print(tmp)
 
@@ -18,12 +22,12 @@ print(tmp)
 # 好处在于:运用对线程的控制和监控，将返回的结果赋于一变量，便于程序的处理。
 
 import subprocess
-p = subprocess.Popen('ls *.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)   
+p = subprocess.Popen([cmdStr,'*.ini'], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)   
 
 print("===========================>subprocess.Popen")
 print(p.stdout.readlines())
 
 for line in p.stdout.readlines():
-    print (line)
+    print(line)
 
 retval = p.wait()

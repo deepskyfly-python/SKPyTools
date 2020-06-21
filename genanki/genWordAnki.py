@@ -34,15 +34,17 @@ my_model = genanki.Model(
         },
     ],
     css = r'''
-    .card {
+.card {
     font-family: arial;
     font-size: 20px;
     text-align: left;
     color: #D1D1D1;
     background-color: #282828;
-    }
-    a{color:#C1C1C1 
-    }
+}
+a{color:#C1C1C1 }
+.typeGood {color:#33aa33 ; background-color: #003300; }
+.typeBad { color:#aa3333;background-color: #330000; }
+.typeMissed { background-color: #000000; }
     '''
     )
 
@@ -57,9 +59,10 @@ def addWordNote(word):
     mediaFile = word+'.'+suffix
     media = f'[sound:{mediaFile}]'
     # print(media)
-    text = SKYouDao.SKYouDao.getWordAnkiCard(word)
+    text,audioFiles = SKYouDao.SKYouDao.getWordAnkiCard(word)
     # print(text)
     addNewNote(qustStr,answerStr,media,text)
+    return audioFiles
 
 def renameFile():
     files = []
@@ -78,12 +81,13 @@ def main_run():
     for root, dirs, files in os.walk(audioPath):
         pass
 
-    for f in files:
-        word = f.split('.')[0]
-        addWordNote(word)
 
     # 
     my_package = genanki.Package(my_deck)
+    for f in files:
+        word = f.split('.')[0]
+        audioFiles = addWordNote(word)
+        my_package.media_files += audioFiles
 
     for f in files:
         print(audioPath+f)
