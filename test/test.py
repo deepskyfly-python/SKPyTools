@@ -13,7 +13,8 @@ print(testStr2)
 
 # md5 sha1
 m = hashlib.md5()
-testStr = 'asdfasdfsadfasdfdas'.encode(encoding='utf8')
+testStr = 'essential'.encode(encoding='utf8')
 m.update(testStr)
 print(m.hexdigest())
 print(hashlib.sha1(testStr).hexdigest())
+
