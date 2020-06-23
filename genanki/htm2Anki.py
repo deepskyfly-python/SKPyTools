@@ -6,11 +6,11 @@ from SKGenAnki import SKGenAnki
 sys.path.append("..")
 from skcom.SKYouDao import SKYouDao
 
-# fileName = '语法改错400句.htm'
-# my_deck = genanki.Deck(2059411252,'语法改错400句')
+fileName = '语法改错400句.htm'
+my_deck = genanki.Deck(2059411252,'语法改错400句')
 
-fileName = '100句翻译.htm'
-my_deck = genanki.Deck(2059411251,'100句翻译')
+# fileName = '100句翻译.htm'
+# my_deck = genanki.Deck(2059411251,'100句翻译')
 
 # fileName = '100句翻译_扩展.htm'
 # my_deck = genanki.Deck(2059411250,'100句翻译_扩展')
@@ -31,10 +31,12 @@ def addNewNote(qStr,aStr):
     text = re.sub(r'(<img.*src=")(.*/)(.*)"',r'\1\3',aStr)
 
     soup = BeautifulSoup(text,'html.parser')    
-    ansStr = SKGenAnki.getTagWord(soup.get_text())    
-    myMedia ='[sound:'+SKYouDao.getMd5FileName(ansStr)+'.mp3]'
-    audioFile = SKYouDao.getWordAudio(ansStr,useMd5Name=True)
-    fileList.append(audioFile)
+    ansStr = SKGenAnki.getTagWord(soup.get_text()) 
+    myMedia = ''   
+    if ansStr != '':
+        myMedia ='[sound:'+SKYouDao.getMd5FileName(ansStr)+'.mp3]'
+        audioFile = SKYouDao.getWordAudio(ansStr,useMd5Name=True)
+        fileList.append(audioFile)
 
     text = SKGenAnki.clearTags(text)
     my_deck.add_note(genanki.Note(model=SKGenAnki.WordModelInput,fields=[qStr, ansStr,myMedia,text]))
@@ -64,7 +66,7 @@ def main_run():
                 fList = addNewNote(qustStr,answerStr)
                 my_package.media_files += fList
      
-     
+
     for ii in soup.find_all('img'):
         #print(ii['src'])
         my_package.media_files.append(ii['src'])

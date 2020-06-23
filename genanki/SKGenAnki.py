@@ -120,12 +120,14 @@ a{color:#C1C1C1 }
         # print(tagList)
         searchList = [SKGenAnki.convertNoRegular(tagList[0]),SKGenAnki.convertNoRegular(tagList[1])]
         rs = re.findall(searchList[0]+r'([^\[]*)'+searchList[1],inStr)
-        # replace
-        rs[0] = re.sub(r'\n',' ',rs[0]).strip()
-        rs[0] = re.sub(r'\s+',' ',rs[0])
-        rs[0] = re.sub('’',"'",rs[0])
-        print(rs)
-        if rs is not None:
+
+        if rs is not None and len(rs) > 0:
+            # replace
+            # print(rs)
+            rs[0] = re.sub(r'\n',' ',rs[0]).strip()
+            rs[0] = re.sub(r'\s+',' ',rs[0])
+            rs[0] = re.sub('’',"'",rs[0])
+            print(rs)
             return rs[0]
         else:
             return ''
