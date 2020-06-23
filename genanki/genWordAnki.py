@@ -14,7 +14,7 @@ my_deck = genanki.Deck(1111000010,fileName)
 
 
 def addNewNote(qStr,aStr,mediaStr,textStr):
-    my_deck.add_note(genanki.Note(model=SKGenAnki.WordModelInput,fields=[qStr, aStr,mediaStr,textStr]))
+    my_deck.add_note(genanki.Note(model=SKGenAnki.WordModelInput2,fields=[qStr, aStr,mediaStr,textStr]))
 
 def addWordNote(word):
     print(word)

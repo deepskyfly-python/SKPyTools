@@ -9,4 +9,5 @@ soup = BeautifulSoup(requestFile.content,'html.parser')
 # print(soup.p)
 
 for pp in soup.find_all('p'):
-    print(pp)
+    print(pp.prettify())
+    print(pp.get_text())
