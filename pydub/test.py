@@ -1,7 +1,7 @@
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
  
-sound = AudioSegment.from_mp3("01 Test 1-横向测试.mp3")
+sound = AudioSegment.from_mp3("01 Test 2-横向测试.mp3")
 loudness = sound.dBFS
 #print(loudness)
  
@@ -18,7 +18,7 @@ print('总分段：', len(chunks))
  
 # 放弃长度小于2秒的录音片段
 for i in list(range(len(chunks)))[::-1]:
-    if len(chunks[i]) <= 1000 or len(chunks[i]) >= 10000:
+    if len(chunks[i]) <= 500 or len(chunks[i]) >= 10000:
         chunks.pop(i)
 print('取有效分段(大于2s小于10s)：', len(chunks))
  

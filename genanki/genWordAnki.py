@@ -7,9 +7,9 @@ sys.path.append("..")
 from skcom import SKYouDao
 from SKGenAnki import SKGenAnki
 
-audioPath = './m3t1/'
+audioPath = './outputFiles/'
 suffix = 'wav'
-fileName = 'WangLu_m3t1'
+fileName = 'WangLu_M3'
 my_deck = genanki.Deck(1111000010,fileName)
 
 
