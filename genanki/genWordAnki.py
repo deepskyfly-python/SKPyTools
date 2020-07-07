@@ -7,7 +7,7 @@ sys.path.append("..")
 from skcom import SKYouDao
 from SKGenAnki import SKGenAnki
 
-audioPath = './outputFiles/'
+audioPath = './WangLu_M3/'
 suffix = 'wav'
 fileName = 'WangLu_M3'
 my_deck = genanki.Deck(1111000010,fileName)
@@ -28,7 +28,7 @@ def addWordNote(word):
     addNewNote(qustStr,answerStr,media,text)
     return audioFiles
 
-def renameFile():
+def renameFile(audioPath):
     files = []
     for root, dirs, files in os.walk(audioPath):
         pass
@@ -61,7 +61,7 @@ def main_run():
 
 
 if __name__ == '__main__':
-    renameFile()
+    renameFile(audioPath)
     main_run()
     # sss = '<img width="553" height="73" src="test.files/image002.png" alt="IMG_256" v:shapes="图片_x0020_8">'
     # print(re.sub(r'(<img.*src=")(.*/)(.*)"',r'\1\3',sss))
