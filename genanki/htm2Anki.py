@@ -6,11 +6,11 @@ from SKGenAnki import SKGenAnki
 sys.path.append("..")
 from skcom.SKYouDao import SKYouDao
 
-fileName = '语法改错400句.htm'
-my_deck = genanki.Deck(2059411252,'语法改错400句')
+# fileName = '语法改错400句.htm'
+# my_deck = genanki.Deck(2059411252,'语法改错400句')
 
-# fileName = '100句翻译.htm'
-# my_deck = genanki.Deck(2059411251,'100句翻译')
+fileName = '100句翻译.htm'
+my_deck = genanki.Deck(2059411251,'100句翻译')
 
 # fileName = '100句翻译_扩展.htm'
 # my_deck = genanki.Deck(2059411250,'100句翻译_扩展')
