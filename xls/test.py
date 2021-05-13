@@ -56,4 +56,4 @@ for i in range(nrows):
                     wsheet.write(writeRowId,1,wordLink)
                     writeRowId +=1
 
-writebook.save('wordBiliExplain.xls')        
+writebook.save(sys.path[0]+"\\wordBiliExplain.xls")        
