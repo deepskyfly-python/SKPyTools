@@ -1,6 +1,7 @@
 import xlrd
 import xlwt
 import re
+import sys
 
 
 #     打开excel
@@ -29,8 +30,9 @@ import re
 #　　7、保存
 # writebook.save('answer.xls')#一定要记得保存
 
+filePath = sys.path[0]+"\\英语单词.xlsx"
 
-workbook = xlrd.open_workbook("英语单词.xlsx")
+workbook = xlrd.open_workbook(filePath)
 sheet = workbook.sheet_by_name("英语单词")
 nrows = sheet.nrows
 

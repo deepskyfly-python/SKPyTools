@@ -1,8 +1,9 @@
 from docx import Document
 from docx.shared import Inches
+import sys
 
-#filePath = 'demo.docx'
-filePath = 'test.docx'
+#filePath = sys.path[0]+'/demo.docx'
+filePath = sys.path[0]+'/test.docx'
 #获取文章全部内容
 doc=Document(filePath)
 #一级标题

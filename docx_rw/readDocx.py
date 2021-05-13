@@ -1,6 +1,7 @@
 from docx import Document
+import sys
 
-doc = Document('demo.docx')
+doc = Document(sys.path[0]+'/demo.docx')
 
 #每一段的内容
 print('#每一段的内容')
